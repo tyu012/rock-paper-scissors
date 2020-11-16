@@ -24,8 +24,8 @@
       if (playerSelection === computerSelection) {
         return "Tied!";
       } else if ((playerSelection === "Rock" && computerSelection === "Scissors")
-      || (playerSelection === "Paper" && computerSelection === "Rock")
-      || (playerSelection === "Scissors" && computerSelection === "Paper")) {
+          || (playerSelection === "Paper" && computerSelection === "Rock")
+          || (playerSelection === "Scissors" && computerSelection === "Paper")) {
         return "You Win! " + playerSelection + " beats " + computerSelection;
       } else {
         return "You Lose! " + computerSelection + " beats " + playerSelection;
@@ -40,17 +40,15 @@
       let yourScore = 0;
       let computerScore = 0;
 
-      for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Select rock, paper, scissors");
-        let roundResult = playRound(playerSelection, computerPlay());
-        console.log(roundResult);
-        if (roundResult.match(/You Win!/)) {
-          yourScore++;
-        } else if (roundResult.match(/You Lose!/)) {
-          computerScore++;
-        }
-        console.log(getScoreAsString(yourScore, computerScore));
+      let playerSelection = prompt("Select rock, paper, scissors");
+      let roundResult = playRound(playerSelection, computerPlay());
+      console.log(roundResult);
+      if (roundResult.match(/You Win!/)) {
+        yourScore++;
+      } else if (roundResult.match(/You Lose!/)) {
+        computerScore++;
       }
+      console.log(getScoreAsString(yourScore, computerScore));
       
       let finalResults = "";
 
