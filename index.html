@@ -5,6 +5,13 @@
   <meta charset="UTF-8"/>
 </head>
 <body>
+  <div id="player-score" class="score"></div>
+  <div id="computer-score" class="score"></div>
+  <div id="buttons">
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+  </div>
   <script>
     function computerPlay() {
       const result = Math.floor(Math.random() * 3);
@@ -36,6 +43,7 @@
       return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     }
 
+    // This plays the game through the console, not the user interface.
     function game() {
       let yourScore = 0;
       let computerScore = 0;
@@ -68,7 +76,6 @@
       return "Score: " + yourScore + "-" + computerScore;
     }
 
-    game();
   </script>
 </body>
 </html>
