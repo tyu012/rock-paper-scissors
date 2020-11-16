@@ -1,0 +1,26 @@
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+h1 {
+    font-size: 36px;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    padding: 10px;
+}
+
+ul {
+    display: block;
+}
+
+li {
+    float: left;
+    padding: 10px 40px;
+}
+
+#buttons {
+    padding: 10px;
+}
