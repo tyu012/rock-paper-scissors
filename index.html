@@ -8,15 +8,17 @@
 </head>
 <body>
   <div><h1>Rock, Paper, Scissors</h1></div>
-  <div id="status"><h2>Click the buttons to play!</h2></div>
-  <ul>
-    <li id="player-score" class="score"></li>
-    <li id="computer-score" class="score"></li>
-  </ul>
-  <div id="buttons">
-    <button id="rock" class="move">Rock</button>
-    <button id="paper" class="move">Paper</button>
-    <button id="scissors" class="move">Scissors</button>
+  <div id="content">
+    <h2 id="status">Click the buttons to play!</h2>
+    <ul>
+      <li id="player-score" class="score"></li>
+      <li id="computer-score" class="score"></li>
+    </ul>
+    <div id="buttons">
+      <button id="rock" class="move">Rock</button>
+      <button id="paper" class="move">Paper</button>
+      <button id="scissors" class="move">Scissors</button>
+    </div>
   </div>
   <script>
     function computerPlay() {
@@ -47,38 +49,7 @@
       return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     }
 
-    // This plays the game through the console, not the user interface.
-    function game() {
-      let yourScore = 0;
-      let computerScore = 0;
-
-      let playerSelection = prompt("Select rock, paper, scissors");
-      let roundResult = playRound(playerSelection, computerPlay());
-      console.log(roundResult);
-      if (roundResult.match(/You Win!/)) {
-        yourScore++;
-      } else if (roundResult.match(/You Lose!/)) {
-        computerScore++;
-      }
-      console.log(getScoreAsString(yourScore, computerScore));
-      
-      let finalResults = "";
-
-      if (yourScore === computerScore) {
-        finalResults += "Final results: Tied!";
-      } else if (yourScore > computerScore) {
-        finalResults += "Final results: You won!";
-      } else {
-        finalResults += "Final results: You lost!";
-      }
-
-      finalResults += " " + getScoreAsString(yourScore, computerScore);
-      console.log(finalResults);
-    }
-
-    function getScoreAsString(yourScore, computerScore) {
-      return "Score: " + yourScore + "-" + computerScore;
-    }
+    
 
 
 
@@ -93,6 +64,11 @@
     const statusIndicator = document.querySelector("#status");
     
     moves.forEach(move => move.addEventListener("click", () => {
+      if (playerScore === 5 || computerScore === 5) {
+        playerScore = 0;
+        computerScore = 0;
+      }
+
       let roundResult = playRound(capitalize(move.id), computerPlay());
       console.log(roundResult);
       if (roundResult.match(/Win/)) {
@@ -100,6 +76,13 @@
       }
       if (roundResult.match(/Lose/)) {
         computerScore += 1;
+      }
+
+      if (playerScore === 5) {
+        roundResult = "You won the game! Retry?";
+      }
+      if (computerScore === 5) {
+        roundResult = "You lost the game! Retry?";
       }
 
       statusIndicator.textContent = roundResult;

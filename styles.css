@@ -12,15 +12,18 @@ h2 {
     padding: 10px;
 }
 
-ul {
-    display: block;
-}
-
 li {
     float: left;
     padding: 10px 40px;
 }
 
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 #buttons {
-    padding: 10px;
+    font-size: 48px;
 }
