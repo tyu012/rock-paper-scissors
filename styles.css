@@ -2,6 +2,10 @@ html {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
+body {
+    background-color: lightblue;
+}
+
 h1 {
     font-size: 36px;
     padding: 10px;
@@ -17,6 +21,16 @@ li {
     padding: 10px 40px;
 }
 
+#player-score {
+    color: green;
+    font-size: 24px;
+}
+
+#computer-score {
+    color: red;
+    font-size: 24px;
+}
+
 #content {
     display: flex;
     justify-content: center;
@@ -25,5 +39,18 @@ li {
 }
 
 #buttons {
-    font-size: 48px;
+    margin: 12px;
+}
+
+.move {
+    font-size: 18px;
+    padding: 9px;
+    margin: 8px;
+    border-radius: 18px;
+    border-style: none;
+    background-color: lightsalmon;
+}
+
+.move:hover {
+    background-color: salmon;
 }
