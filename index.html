@@ -8,9 +8,9 @@
   <div id="player-score" class="score"></div>
   <div id="computer-score" class="score"></div>
   <div id="buttons">
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <button id="rock" class="move">Rock</button>
+    <button id="paper" class="move">Paper</button>
+    <button id="scissors" class="move">Scissors</button>
   </div>
   <script>
     function computerPlay() {
@@ -26,8 +26,6 @@
     }
 
     function playRound(playerSelection, computerSelection) {
-      playerSelection = capitalize(playerSelection);
-      computerSelection = capitalize(computerSelection);
       if (playerSelection === computerSelection) {
         return "Tied!";
       } else if ((playerSelection === "Rock" && computerSelection === "Scissors")
@@ -76,6 +74,11 @@
       return "Score: " + yourScore + "-" + computerScore;
     }
 
+    const moves = document.querySelectorAll(".move");
+    moves.forEach(move => move.addEventListener("click", () => {
+      let roundResult = playRound(capitalize(move.id), computerPlay());
+      console.log(roundResult);
+    }));
   </script>
 </body>
 </html>
